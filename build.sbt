@@ -23,6 +23,7 @@ libraryDependencies  ++= Seq(
   "org.apache.commons" % "commons-math3" % "3.6"
 )
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
+libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "4.2.0"
 //libraryDependencies += "org.jzy3d" % "jzy3d" % "0.9" from "http://www.jzy3d.org/release/0.9a3/org.jzy3d-0.9.jar"
 //
 //addZipJar("org.jzy3d" % "jzy3d-deps" % "0.9" from "http://www.jzy3d.org/release/0.9/org.jzy3d-0.9-dependencies.zip", Compile)
