@@ -15,7 +15,7 @@ class TestTokenizer extends FlatSpec with Matchers {
 
   it should "tokenize string to chinese words" in {
     val tokenizer=new Tokenizer()
-    val tokens=tokenizer.nplTokenize("Lucy is pretty")
+    val tokens=tokenizer.nplTokenize("国务院日前发出紧急通知，要求各地切实落实保证市场供应的各项政策，维护副食品价格稳定。")
     println(tokens)
   }
 }

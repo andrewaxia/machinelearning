@@ -8,6 +8,7 @@ import edu.stanford.nlp.semgraph._;
 import edu.stanford.nlp.trees._;
 import java.util.Properties
 import scala.collection.JavaConversions._
+import scala.io.Source.fromURL
 
 class Tokenizer {
   def addToDict(line: String) = {
@@ -29,7 +30,12 @@ class Tokenizer {
   }
   def nplTokenize(str: String): List[String] = {
     var props = new Properties()
-    props.setProperty("annotators", "tokenize,ssplit")
+    // props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner, parse, depparse,coref")
+    // props.setProperty("tokenize.language","zh")
+    val reader =
+      fromURL(getClass.getResource("/nlplanguage.properties")).bufferedReader()
+    props.load(reader)
+
     val pipeline = new StanfordCoreNLP(props)
     val document = new CoreDocument(str)
     pipeline.annotate(document)
@@ -37,7 +43,7 @@ class Tokenizer {
     //   System.out.println(token.word() + "\t" + token.beginPosition() + "\t" + token.endPosition());
     // }
     val firstSentenceTokens = document.sentences().get(0).tokens()
-    val tokens = firstSentenceTokens.toList.map(node => node.word())
+    val tokens = firstSentenceTokens.toList.map(node => node.get(classOf[CoreAnnotations.TextAnnotation]))
     tokens
   }
 }

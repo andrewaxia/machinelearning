@@ -2,7 +2,7 @@ name := "ScalaDataAnalysis"
 
 version := "0.1"
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.12"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
@@ -24,6 +24,9 @@ libraryDependencies  ++= Seq(
 )
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
 libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "4.2.0"
+libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "4.2.0" classifier "models-chinese"
+// libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "4.2.0" classifier "models-english"
+
 //libraryDependencies += "org.jzy3d" % "jzy3d" % "0.9" from "http://www.jzy3d.org/release/0.9a3/org.jzy3d-0.9.jar"
 //
 //addZipJar("org.jzy3d" % "jzy3d-deps" % "0.9" from "http://www.jzy3d.org/release/0.9/org.jzy3d-0.9-dependencies.zip", Compile)
@@ -33,6 +36,6 @@ libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "4.2.0"
 //}
 
 
-resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
+resolvers += "Artima Maven Repository" at "https://repo.artima.com/releases"
 resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 addSbtPlugin("com.artima.supersafe" % "sbtplugin" % "1.1.3")
