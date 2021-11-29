@@ -1,5 +1,4 @@
 package com.insight.utils.test
-import breeze.stats.MeanAndVariance
 import org.scalatest._
 import com.insight.utils._
 import com.insight.viz._
@@ -11,7 +10,7 @@ class TestGaussianVariable extends FlatSpec with Matchers {
    val xVector=gVariable.getSamples(100)
    val yVector=gVariable.getSamples(100)
    val viz=new DataViz("x",yLabel = "y",xVector.toVector,yVector.toVector)
-   viz.drawPoint()
+  //  viz.drawPoint()
    val xMeanAndVariance=meanAndVariance(xVector)
    println(xMeanAndVariance)
  }
